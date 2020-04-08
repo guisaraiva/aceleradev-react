@@ -1,0 +1,141 @@
+<!--Início estrutura do site / HTML5 e CSS3 -->
+<!DOCTYPE html>
+<html class="no-js" lang="pt-br">
+	<head>
+		<!-- Informações de metadados que não podem ser definidos por outro elemento-->
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<!-- Título do Site-->
+		<title>IMDB - CodeNation Filmes</title>
+
+		<!-- Importação dos arquivos de estilo do site e ícones -->
+		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="shortcut icon" type="image/png" href="/favicon.png" />
+	</head>
+
+	<body>
+		<!-- Início da estrura do cabeçalho do site (header)-->
+
+		<header class="banner">
+			<nav class="banner-menu">
+				<div class="container">
+					<img src="img/logo-imdb.jpg" alt="Logo IMDB">
+					<a class="banner-logo" href="#"></a>
+					<ul class="banner-list">
+						<li class="banner-list-itens">
+							<a href="#">Lançamentos</a>
+						</li>
+						<li class="banner-list-itens">
+							<a href="#">Crítica</a>
+						</li>
+						<li class="banner-list-itens">
+							<a href="#">Em cartaz</a>
+						</li>
+					</ul>
+					<div class="usuario">
+						<div class="usuario-foto">
+							<img src="img/walter-white.jpg" alt="Walter White">
+						</div>
+						<div class="usuario-Nome">Walter White</div>
+					</div>
+				</div>
+			</nav>
+
+			<div class="conteudo">
+				<div class="container">
+					<h2 class="titulo">Mad Max: Estrada da Fúria</h2>
+					<p class="genero">
+						<a class="genero-item" href="#">Aventura</a>
+						<a class="genero-item" href="#">SCI-FI</a>
+						<a class="genero-item"href="#">Terror</a>
+					</p>
+					<a class="botao" href="#">Assistir Trailer
+						<i class="fa fa-play-circle-o" size="20"></i>
+					</a>
+					<div class="informacao">
+						<p>Nos Cinemas</p>
+						<p>15 de Outubro de 2015 (Brasil)</p>
+					</div>
+				</div>
+			</div>
+		</header>
+		
+		<!-- Início da estrura de catálogo do site (section)-->
+		<section class="catalogo">
+			<nav class="catalogo-menu">
+				<div class="container">
+					<ul class="catalogo-menu-lista">
+						<li class="catalogo-menu-lista-item">
+							<a href="#">Nos Cinemas</a>
+						</li>
+						<li class="catalogo-menu-lista-item">
+							<a href="#">Em Breve</a>
+						</li>
+						<li class="catalogo-menu-lista-item">
+							<a href="#">Bilheteria</a>
+						</li>
+						<li class="catalogo-menu-lista-item">
+							<a href="#">Série</a>
+						</li>
+						<li class="catalogo-menu-lista-item">
+							<a href="#">Trailers</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<div class="container">
+				<ul class="catalogo-filmes-lista">
+					<li class="catalogo-filmes-lista-item">
+						<figure class="filme-poster">
+							<img src="img/poster-moonlight.jpg" alt="">
+							<div class="filme-poster-info">
+								<h3>Moonlight</h3>
+								<a class="filme-poster-link" href="">
+									<i class="fa fa-play" aria-hidden="true"></i>
+								</a>
+							</div>
+						</figure>
+						<div class="filme-sinopse">
+							<h3 class="filme-sinopse-titulo">Moonlight</h3>
+							<p class="sinopse-genero">
+								<a href="#" class="sinopse-genero-item">Drama</a>
+							</p>
+							<p class="filme-nota">
+								<i class="fa fa-heart" aria-hidden="true"></i> 7.0
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+		
+		<!-- Início da estrura de rodapé do site (footer)-->
+		<footer class="rodape">
+			<div class="container">
+				<img class="rodape-img" src="img/logo-imdb.jpg" alt="">
+				<ul class="rodape-lista">
+					<li class="rodape-lista-item icone-twitter">
+						<a href="#">
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</a>
+					</li>
+					<li class="rodape-lista-item icone-facebook">
+						<a href="#">
+							<i class="fa fa-facebook" aria-hidden="true"></i>
+						</a>
+					</li>
+					<li class="rodape-lista-item icone-instagram">
+						<a href="#">
+							<i class="fa fa-instagram" aria-hidden="true"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</body>
+</html>
