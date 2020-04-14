@@ -15,91 +15,312 @@
 
 	<body>
 		<!-- Main bar of site -->
-		<header class="mainbar">
-			<div class="mainbar__content">
-				<a class="mainbar__logo" href="#">
+		<header class="header">
+			<div class="content">
+				<a class="header__logo" href="#">
 					<img src="img/instagram-logo.svg" alt="Instagram logo">
 				</a>
-				<button class="mainbar__icon">
+				<button class="header__icon">
 					<i class="far fa-paper-plane"></i>
 				</button>
 			</div>
 		</header>	
 		<!-- Content primary (Profile of users) -->
-
-		<div class="container">
+		<div class="content">
 			<section class="profile">
-				<div class="profile__users">
-					<a class="users__image" href="#">
-						<img src="img/profiles/black-panther/black-panther-profile.jpg" alt="">
+				<div class="profile__user">
+					<a class="user__img" href="#">
+						<span class="user__img__custom">
+							<img src="img/profiles/black-panther/black-panther-profile.jpg" alt="Black Panther">
+						</span>
 					</a>
-					<a class="users__image" href="#">
-						<img src="img/profiles/bruce/bruce-profile.jpg" alt="">
+					<a class="user__img user__img--newFeature" href="#">
+						<span class="user__img__custom ">
+							<img src="img/profiles/bruce/bruce-profile.jpg" alt="Bruce">
+						</span>
 					</a>
-					<a class="users__image" href="#">
-						<img src="img/profiles/carol/carol-profile.jpg" alt="">
+					<a class="user__img user__img--newFeature" href="#">
+						<span class="user__img__custom">
+							<img src="img/profiles/carol/carol-profile.jpg" alt="Carol">
+						</span>
 					</a>
-					<a class="users__image" href="#">
-						<img src="img/profiles/domino/domino-profile.jpg" alt="">
+					<a class="user__img" href="#">
+						<span class="user__img__custom">
+							<img src="img/profiles/domino/domino-profile.jpg" alt="Domino">
+						</span>
 					</a>
-					<a class="users__image" href="#">
-						<img src="img/profiles/gamora/gamora-profile.jpg" alt="">
+					<a class="user__img" href="#">
+						<span class="user__img__custom">
+							<img src="img/profiles/gamora/gamora-profile.jpg" alt="Gamora">	
+						</span>
 					</a>
-					<a class="users__image" href="#">
-						<img src="img/profiles/yoda/yoda-profile.jpg" alt="">
+					<a class="user__img user__img--newFeature" href="#">
+						<span class="user__img__custom">
+							<img src="img/profiles/yoda/yoda-profile.jpg" alt="Yoda">
+						</span>
 					</a>
-				</div>
+				</div>	
 			</section>
 		</div>
-		<!-- Content secundary (Stories of users) -->
-		<div class="container">
-			<section class="stories">
-				<article class="stories__users">
+		<!-- Content secundary (Posts of users) -->
+		<div class="content">
+			<section class="posts">
+				<article class="posts__user">
 					<!-- Article header -->
-					<header class="stories__header">
+					<header class="posts__header">
 						<div class="user">
-							<a class="users__image" href="#">
-								<img src="img/profiles/black-panther/black-panther-profile.jpg" alt="">
+							<a class="user__img" href="#">
+								<img  src="img/profiles/domino/domino-profile.jpg" alt="Domino">
 							</a>
-							<a class="stories__name" href="#">Black Panther</a>
-							<button class="stories__actions">
-								<i class="fas fa-ellipsis-h"></i>
-							</button>
+							<a class="posts__name" href="#">Domino</a>
 						</div>
+						<button class="posts__actions">
+							<i class="fas fa-ellipsis-h"></i>
+						</button>
 					</header>
 					<!-- Figure -->
-					<figure class="stories__post">
-						<a class="stories_imagepost">
-							<img src="img/profiles/black-panther/black-panther-1.jpg" alt="">
-						</a>
+					<figure class="posts__figure">
+						<img src="img/profiles/domino/domino-1.jpg" alt="">
 					</figure>
 					<!-- Buttons likes, comments, etc -->
-					<nav class="stories__buttons">
-						<button class="stories__icons">
+					<nav class="posts__buttons">
+						<button class="posts__icons">
 							<i class="far fa-heart"></i>
 						</button>
-						<button class="stories__icons">
+						<button class="posts__icons">
 							<i class="far fa-comment"></i>
 						</button>
-						<button class="stories__icons">
+						<button class="posts__icons">
+							<i class="far fa-paper-plane"></i>
+						</button>
+						<button class="posts__icons">
 							<i class="far fa-bookmark"></i>
 						</button>
 					</nav>
 					<!-- Users who liked the storie -->
-					<div class="stories__likes">
+					<div class="posts__likes">
 						<div class="user">
-							<a class="users__image" href="#">
-								<img src="img/profiles/black-panther/black-panther-profile.jpg" alt="">
+							<a class="user__img" href="#">
+								<img src="img/profiles/yoda/yoda-profile.jpg" alt="Black Panther">
 							</a>
-							<span>curtido por
-								<a href="#">Domino</a>
-								e outras
-								<a href="#">7 pessoas</a>
+							<span>curtido por 
+								<a href="#">Yoda</a> e outras<a href="#"> 25 pessoas</a>
 							</span>
 						</div>
 					</div>
+					<!--Create post comments -->
+					<div class="posts_comments">
+						<input class="posts__input" type="text" placeholder="Adicione um comentário...">
+						<button class="posts__button">Publicar</button>
+					</div>
+				</article>
+
+				<article class="posts__user">
+					<!-- Article header -->
+					<header class="posts__header">
+						<div class="user">
+							<a class="user__img" href="#">
+								<img  src="img/profiles/bruce/bruce-profile.jpg" alt="Bruce Wayne">
+							</a>
+							<a class="posts__name" href="#">Bruce Wayne</a>
+						</div>
+						<button class="posts__actions">
+							<i class="fas fa-ellipsis-h"></i>
+						</button>
+
+					</header>
+					<!-- Figure -->
+					<figure class="posts__figure">
+							<img src="img/profiles/bruce/bruce-4.jpg" alt="">
+					</figure>
+					<!-- Buttons likes, comments, etc -->
+					<nav class="posts__buttons">
+						<button class="posts__icons">
+							<i class="far fa-heart"></i>
+						</button>
+						<button class="posts__icons">
+							<i class="far fa-comment"></i>
+						</button>
+						<button class="posts__icons">
+							<i class="far fa-paper-plane"></i>
+						</button>
+						<button class="posts__icons">
+							<i class="far fa-bookmark"></i>
+						</button>
+					</nav>
+					<!-- Users who liked the storie -->
+					<div class="posts__likes">
+						<div class="user">
+							<a class="user__img" href="#">
+								<img src="img/profiles/carol/carol-profile.jpg" alt="Carol">
+							</a>
+							<span>curtido por 
+								<a href="#">Carol</a> e outras<a href="#"> 17 pessoas</a>
+							</span>
+						</div>
+					</div>
+					<!--Create post comments -->
+					<div class="posts_comments">
+						<input class="posts__input" type="text" placeholder="Adicione um comentário...">
+						<button class="posts__button">Publicar</button>
+					</div>
+				</article>
+
+				<article class="posts__user">
+					<!-- Article header -->
+					<header class="posts__header">
+						<div class="user">
+							<a class="user__img" href="#">
+								<img  src="img/profiles/gamora/gamora-profile.jpg" alt="Gamora">
+							</a>
+							<a class="posts__name" href="#">Gamora</a>
+						</div>
+						<button class="posts__actions">
+							<i class="fas fa-ellipsis-h"></i>
+						</button>
+
+					</header>
+					<!-- Figure -->
+					<figure class="posts__figure">
+							<img src="img/profiles/gamora/gamora-1.jpg" alt="">
+					</figure>
+					<!-- Buttons likes, comments, etc -->
+					<nav class="posts__buttons">
+						<button class="posts__icons">
+							<i class="far fa-heart"></i>
+						</button>
+						<button class="posts__icons">
+							<i class="far fa-comment"></i>
+						</button>
+						<button class="posts__icons">
+							<i class="far fa-paper-plane"></i>
+						</button>
+						<button class="posts__icons">
+							<i class="far fa-bookmark"></i>
+						</button>
+					</nav>
+					<!-- Users who liked the storie -->
+					<div class="posts__likes">
+						<div class="user">
+							<a class="user__img" href="#">
+								<img src="img/profiles/bruce/bruce-profile.jpg" alt="Black Panther">
+							</a>
+							<span>curtido por 
+								<a href="#">Bruce Wayne</a> e outras<a href="#"> 32 pessoas</a>
+							</span>
+						</div>
+					</div>
+					<!--Create post comments -->
+					<div class="posts_comments">
+						<input class="posts__input" type="text" placeholder="Adicione um comentário...">
+						<button class="posts__button">Publicar</button>
+					</div>
+				</article>
+
+				<article class="posts__user">
+					<!-- Article header -->
+					<header class="posts__header">
+						<div class="user">
+							<a class="user__img" href="#">
+								<img  src="img/profiles/black-panther/black-panther-profile.jpg" alt="Black Panther">
+							</a>
+							<a class="posts__name" href="#">Black Panther</a>
+						</div>
+						<button class="posts__actions">
+							<i class="fas fa-ellipsis-h"></i>
+						</button>
+
+					</header>
+					<!-- Figure -->
+					<figure class="posts__figure">
+							<img src="img/profiles/black-panther/black-panther-4.jpg" alt="">
+					</figure>
+					<!-- Buttons likes, comments, etc -->
+					<nav class="posts__buttons">
+						<button class="posts__icons">
+							<i class="far fa-heart"></i>
+						</button>
+						<button class="posts__icons">
+							<i class="far fa-comment"></i>
+						</button>
+						<button class="posts__icons">
+							<i class="far fa-paper-plane"></i>
+						</button>
+						<button class="posts__icons">
+							<i class="far fa-bookmark"></i>
+						</button>
+					</nav>
+					<!-- Users who liked the storie -->
+					<div class="posts__likes">
+						<div class="user">
+							<a class="user__img" href="#">
+								<img src="img/profiles/bruce/bruce-profile.jpg" alt="Black Panther">
+							</a>
+							<span>curtido por 
+								<a href="#">Bruce Wayne</a>
+								e outras
+								<a href="#">10 pessoas</a>
+							</span>
+						</div>
+					</div>
+					<!--Create post comments -->
+					<div class="posts_comments">
+						<input class="posts__input" type="text" placeholder="Adicione um comentário...">
+						<button class="posts__button">Publicar</button>
+					</div>
+				</article>
+
+				<article class="posts__user">
+					<!-- Article header -->
+					<header class="posts__header">
+						<div class="user">
+							<a class="user__img" href="#">
+								<img  src="img/profiles/carol/carol-profile.jpg" alt="Carol">
+							</a>
+							<a class="posts__name" href="#">Carol</a>
+						</div>
+						<button class="posts__actions">
+							<i class="fas fa-ellipsis-h"></i>
+						</button>
+
+					</header>
+					<!-- Figure -->
+					<figure class="posts__figure">
+							<img src="img/profiles/carol/carol-2.jpg" alt="">
+					</figure>
+					<!-- Buttons likes, comments, etc -->
+					<nav class="posts__buttons">
+						<button class="posts__icons">
+							<i class="far fa-heart"></i>
+						</button>
+						<button class="posts__icons">
+							<i class="far fa-comment"></i>
+						</button>
+						<button class="posts__icons">
+							<i class="far fa-paper-plane"></i>
+						</button>
+						<button class="posts__icons">
+							<i class="far fa-bookmark"></i>
+						</button>
+					</nav>
+					<!-- Users who liked the storie -->
+					<div class="posts__likes">
+						<div class="user">
+							<a class="user__img" href="#">
+								<img src="img/profiles/gamora/gamora-profile.jpg" alt="Gamora">
+							</a>
+							<span>curtido por 
+								<a href="#">Gamora</a> e outras<a href="#"> 45 pessoas</a>
+							</span>
+						</div>
+					</div>
+					<!--Create post comments -->
+					<div class="posts_comments">
+						<input class="posts__input" type="text" placeholder="Adicione um comentário...">
+						<button class="posts__button">Publicar</button>
+					</div>
 				</article>
 			</section>
-		</div>
+		</div>	
 	</body>
 </html>
