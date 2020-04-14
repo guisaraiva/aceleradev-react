@@ -1,17 +1,106 @@
 <!DOCTYPE html>
 <html class="no-js" lang="pt-br">
 	<head>
+		<title>Instagram Codenation</title> 
+
 		<meta charset="utf-8" />
-		<title>Instagram Codenation</title>
 		<meta name="description" content="" />
-		<link rel="shortcut icon" type="image/png" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		<link rel="stylesheet" href="css/normalize.css" />
 		<link rel="stylesheet" href="css/fontawesome.min.css" />
 		<link rel="stylesheet" href="css/main.css" />
+		<link rel="shortcut icon" type="image/png" href="/favicon.png" />
 	</head>
+
 	<body>
+		<!-- Main bar of site -->
+		<header class="mainbar">
+			<div class="mainbar__content">
+				<a class="mainbar__logo" href="#">
+					<img src="img/instagram-logo.svg" alt="Instagram logo">
+				</a>
+				<button class="mainbar__icon">
+					<i class="far fa-paper-plane"></i>
+				</button>
+			</div>
+		</header>	
+		<!-- Content primary (Profile of users) -->
+		<div class="container">
+			<section class="profile">
+				<div class="profile__users">
+					<a class="users__image" href="#">
+						<img src="img/profiles/black-panther/black-panther-profile.jpg" alt="">
+					</a>
+					<a class="users__image" href="#">
+						<img src="img/profiles/bruce/bruce-profile.jpg" alt="">
+					</a>
+					<a class="users__image" href="#">
+						<img src="img/profiles/carol/carol-profile.jpg" alt="">
+					</a>
+					<a class="users__image" href="#">
+						<img src="img/profiles/domino/domino-profile.jpg" alt="">
+					</a>
+					<a class="users__image" href="#">
+						<img src="img/profiles/gamora/gamora-profile.jpg" alt="">
+					</a>
+					<a class="users__image" href="#">
+						<img src="img/profiles/yoda/yoda-profile.jpg" alt="">
+					</a>
+				</div>	
+			</section>
+		</div>
+		<!-- Content secundary (Stories of users) -->
+		<div class="container">
+			<section class="stories">
+				<article class="stories__users">
+					<!-- Article header -->
+					<header class="stories__header">
+						<div class="user">
+							<a class="users__image" href="#">
+								<img  src="img/profiles/black-panther/black-panther-profile.jpg" alt="">
+							</a>
+							<a class="stories__name" href="#">Black Panther</a>
+							<button class="stories__actions">
+								<i class="fas fa-ellipsis-h"></i>
+							</button>
+						</div>
+					</header>
+					<!-- Figure -->
+					<figure class="stories__post">
+						<a class="stories_imagepost">
+							<img src="img/profiles/black-panther/black-panther-1.jpg" alt="">
+						</a>
+					</figure>
+					<!-- Buttons likes, comments, etc -->
+					<nav class="stories__buttons">
+						<button class="stories__icons">
+							<i class="far fa-heart"></i>
+						</button>
+						<button class="stories__icons">
+							<i class="far fa-comment"></i>
+						</button>
+						<button class="stories__icons">
+							<i class="far fa-bookmark"></i>
+						</button>
+					</nav>
+					<!-- Users who liked the storie -->
+					<div class="stories__likes">
+						<div class="user">
+							<a class="users__image" href="#">
+								<img src="img/profiles/black-panther/black-panther-profile.jpg" alt="">
+							</a>
+							<span>curtido por 
+								<a href="#">Domino</a>
+								e outras
+								<a href="#">7 pessoas</a>
+							</span>
+						</div>
+					</div>
+				</article>
+			</section>
+		</div>	
+
 
 	</body>
 </html>
