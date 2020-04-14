@@ -6,17 +6,54 @@
 	box-sizing: border-box;
 }
 
-body, html{
-	padding: 0;
-	margin: 0;
+/*
+* General configuration
+*/
+
+button {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	outline: none;
 }
 
-
+/*
+* Specific configuration - Mainbar
+*/
 .mainbar{
-	height: 5em;
+	backface-visibility: hidden;
 	width: 100%;
-	background: #CCC;
-	
+	background: #FFF;
+	position: fixed;
+	padding: 8px 16px;
+	top: 0;
+	box-shadow: 0 1px 0 rgba(0,0,0,.1);
 }
 
+.mainbar__content{
+	display: flex;
+	justify-content: space-around;
+	margin:  0 auto;
+	width: 100%;
+}
+
+
+.mainbar__logo{
+	display: inline-block;
+	height: 40px;
+}
+
+.mainbar__logo img{
+	height: 100%;
+
+}
+@media screen and (min-width: 728px) {
+	.container {
+		width: 728px;
+	}
+}
+
+.mainbar__icon{
+	font-size: 1.2rem;
+}
 
