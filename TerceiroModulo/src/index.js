@@ -10,8 +10,7 @@ const fibonacci = () => {
     return listFibonacci
 }
 
-const isFibonnaci = (num) => fibonacci ().includes(num
-    )
+const isFibonnaci = (num) => fibonacci ().includes(num)
 module.exports = {
     fibonacci,
     isFibonnaci
