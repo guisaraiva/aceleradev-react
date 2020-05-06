@@ -1,28 +1,35 @@
-const { products } = require("../src/data/products");
-
-
+const { products } = require('../src/data/products');
 const promotions = ['SINGLE LOOK', 'DOUBLE LOOK', 'TRIPLE LOOK', 'FULL LOOK'];
+const categories = ['T-SHIRTS', 'PANTS', 'SHOES', 'BAGS']
 
-function getShoppingCart(ids,productsList) {
-	
-		const result =  productsList.filter(produto => produto.id == ids)
-	
-	
+function getProductCart(ids, productsList) {
+	const itemsCart = ({ id }) => ids.includes(id) 
+	return productsList.filter(itemsCart)
+ }
 
-	return (
-	 //productsList.filter(produto => produto.id === id).filter(produto => produto.name)
-	
+function getNameCategory(productsList) {
+	return productsList.map(({ name, category }) => ({ name, category }))
+  }
 
-result
-	 //console.log(result.name)
-	 
-	)
-	;
+
+function getPromotions(productsList) {
+	return productsList.reduce((category, product) => {
+		if (!category.includes(product.category)) {
+			category.push(product.category)
+		}
+		return category
+	}, [])
 }
 
-/*module.exports = { getShoppingCart };*/
+function getShoppingCart(ids, productsList) {
+	
+	
+	return {};
 
-/*console.log(products.filter(produto => produto.name === "PINK PANTHER™ T-SHIRT"))*/
 
-console.log(getShoppingCart(110, products))
+}
+
+module.exports = { getShoppingCart };
+
+console.log(getPromotions(products))
 

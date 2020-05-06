@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^25.1.0",
+    "jest": "^25.5.4",
     "jest-junit": "^10.0.0"
   }
 }
