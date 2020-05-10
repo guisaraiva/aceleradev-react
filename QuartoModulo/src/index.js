@@ -53,10 +53,8 @@ function retornaDescontoDaCompra(precoNormal, precoNaPromocao) {
 	return { valorDoDesconto, percentualDeDesconto }
   }
 
-function formatarValores(valorDoPreco){
-	const valorDoCarrinho = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'})
-	const precoFormatadoDoCarrinho = valorDoCarrinho.format(valorDoPreco)
-	return precoFormatadoDoCarrinho.replace('R$', '')
+function formataValores(valorDoPreco){
+	return valorDoPreco.toFixed(2)
 }
 
 function getShoppingCart(ids, listaDeProdutos) {
@@ -74,9 +72,9 @@ function getShoppingCart(ids, listaDeProdutos) {
 	return {
 		products: nomeECategoria,
 		promotion: promocoesDoCarrinho,
-		totalPrice: formatarValores(precoTotalFinal),
-		discountValue: formatarValores(valorDoDesconto),
-		discount: `${formatarValores(percentualDeDesconto)}%`,
+		totalPrice: formataValores(precoTotalFinal),
+		discountValue: formataValores(valorDoDesconto),
+		discount: `${formataValores(percentualDeDesconto)}%`,
 
 	}
 }
