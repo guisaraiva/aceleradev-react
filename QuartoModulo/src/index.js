@@ -1,7 +1,9 @@
+const { products } = require('../src/data/products');
+
 const promotions = ['SINGLE LOOK', 'DOUBLE LOOK', 'TRIPLE LOOK', 'FULL LOOK'];
 
 //Variável criada para armazenar as categorias existentes.
-const categorias = ['T-SHIRTS', 'PANTS', 'SHOES', 'BAGS']
+const categoria = ['T-SHIRTS', 'PANTS', 'SHOES', 'BAGS']
 
 
 function retornaIdDoProduto(ids, listaDeProdutos) {
@@ -13,15 +15,15 @@ function retornaNomeECategoriaDosProdutos(listaDeProdutos) {
 	return listaDeProdutos.map(({ name, category }) => ({ name, category }))
 }
 
-function filtraCategoriaDoProduto(listaDeProdutos, categorias) {
-	return categorias.filter(category => {
-		const categoriaIgual = product => product.category === category
-	  	return listaDeProdutos.some(categoriaIgual)
+function filtraCategoriaDoProduto(produtosComprados, categoria) {
+	return categoria.filter(category => {
+		const categoriaIgual = produto => produto.category === category
+	  	return produtosComprados.some(categoriaIgual)
 	})
 }
   
 function retornaPromocoesDoCarrinho(categoriasCarrinho, promotions){
-	const indexPromocao = categoriasCarrinho.length =1
+	const indexPromocao = categoriasCarrinho.length - 1
 	return promotions[indexPromocao]
 }
 
@@ -29,14 +31,14 @@ function somaOsPrecosDosProdutos(valorTotal, preco){
 	return valorTotal + preco
 }
 
-function retornaPrecoNormalDoProduto(listaDeProdutos){
-	const precoNormal = listaDeProdutos.map(produto => produto.regularPrice)
+function retornaPrecoNormalDoProduto(produtosComprados){
+	const precoNormal = produtosComprados.map(produto => produto.regularPrice)
 	return precoNormal.reduce(somaOsPrecosDosProdutos, 0)
 }
 
 
-function retornaPrecoTotalPromocional(listaDeProdutos, promocoesCarrinho) {
-	const precoPromocaoProdutos = listaDeProdutos.map(({ promotions, regularPrice }) => {
+function retornaPrecoTotalPromocional(produtosComprados, promocoesCarrinho) {
+	const precoPromocaoProdutos = produtosComprados.map(({ promotions, regularPrice }) => {
  	const produtosEmPromocao = promotions || []
 	const promocaoEncontrada = produtosEmPromocao.find(({ looks }) => looks.includes(promocoesCarrinho)) || {}
 	const precoPromocional = promocaoEncontrada.price || regularPrice
@@ -47,7 +49,7 @@ function retornaPrecoTotalPromocional(listaDeProdutos, promocoesCarrinho) {
 
 function retornaDescontoDaCompra(precoNormal, precoNaPromocao) {
 	const valorDoDesconto = precoNormal - precoNaPromocao
-	const percentualDeDesconto = (100 - (100 * precoNaPromocao) / precoNormal)
+	const percentualDeDesconto = 100 - (100 * precoNaPromocao) / precoNormal
 	return { valorDoDesconto, percentualDeDesconto }
   }
 
@@ -60,7 +62,7 @@ function formatarValores(valorDoPreco){
 function getShoppingCart(ids, listaDeProdutos) {
 
 	const produtosComprados = retornaIdDoProduto(ids, listaDeProdutos)
-	const categoriasDoCarrinho = filtraCategoriaDoProduto(produtosComprados, categorias)
+	const categoriasDoCarrinho = filtraCategoriaDoProduto(produtosComprados, categoria)
 	const promocoesDoCarrinho = retornaPromocoesDoCarrinho(categoriasDoCarrinho, promotions)
 	
 	const precoNormalProdutos = retornaPrecoNormalDoProduto(produtosComprados)
@@ -81,3 +83,6 @@ function getShoppingCart(ids, listaDeProdutos) {
 
 module.exports = { getShoppingCart };
 
+console.log(getShoppingCart([120, 230, 310, 490], products))
+//console.log(filtraCategoriaDoProduto(products, categoria))
+//console.log(retornaPromocoesDoCarrinho(promotions))

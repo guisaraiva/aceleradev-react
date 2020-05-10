@@ -12,5 +12,8 @@
   "devDependencies": {
     "jest": "^25.5.4",
     "jest-junit": "^10.0.0"
+  },
+  "dependencies": {
+    "jest-cli": "^26.0.1"
   }
 }

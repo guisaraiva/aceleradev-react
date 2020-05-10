@@ -11,7 +11,7 @@ const exemplo1Mock = {
 	promotion: 'FULL LOOK',
 	totalPrice: '404.96',
 	discountValue: '75.00',
-	discount: '15.63%'
+	discount: ' 15.63%'
 };
 
 const exemplo2Mock = {
