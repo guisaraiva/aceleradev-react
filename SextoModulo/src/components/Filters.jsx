@@ -1,5 +1,5 @@
 import React from 'react';
-class Filters extends React.Component {
+export default class Filters extends React.Component {
 	constructor(props){
 		super(props)
 		this.state = {
@@ -7,15 +7,16 @@ class Filters extends React.Component {
 			isAsc: false,
 			type: "",
 			event: null,
-			applyFilter: null
+			applyFilterContact: null
 		}
-		this.handleChange = this.handleChange.bind(this);
-		this.updateStateAndSetFilter = this.updateStateAndSetFilter.bind(this);
-		this.setFilter = this.setFilter.bind(this);
+		this.handleChangeContact = this.handleChangeContact.bind(this);
+		this.handleUpdateStateAndFilter = this.handleUpdateStateAndFilter.bind(this);
+		this.setFilterContact = this.setFilterContact.bind(this);
 	}
-	handleIconAscOrDesc(icon, isAlpha, isAsc){
+
+	handleAscOrDesc(icon, isAlphaOrNumber, isAsc){
 		if (isAsc){
-			if (isAlpha){
+			if (isAlphaOrNumber){
 				icon.classList.add("fa-sort-alpha-up");
 				icon.classList.remove("fa-sort-alpha-down");
 			} else {
@@ -23,7 +24,7 @@ class Filters extends React.Component {
 				icon.classList.remove("fa-sort-numeric-down")
 			}
 		} else {
-			if (isAlpha) {
+			if (isAlphaOrNumber) {
 				icon.classList.remove("fa-sort-alpha-up")
 				icon.classList.add("fa-sort-alpha-down")
 			} else {
@@ -32,11 +33,11 @@ class Filters extends React.Component {
 			}
 		}
 	}
-	setFilter(){
+	setFilterContact(){
 		if (this.state.type === 'name_search'){
 			this.props.performSearch(this.state.searchString)
 		} else {
-			this.state.applyFilter(this.state.type, this.state.isAsc)
+			this.state.applyFilterContact(this.state.type, this.state.isAsc)
 			const selectedButton = document.querySelector(".is-selected")
 			if (selectedButton && selectedButton.classList){
 				selectedButton.classList.remove("is-selected")
@@ -44,21 +45,23 @@ class Filters extends React.Component {
 			if (this.state.event.tagName !== "I" && this.state.event.tagName !== "INPUT"){
 				this.state.event.classList.add('is-selected');
 				let icon = this.state.event.childNodes[1]
-				this.handleIconAscOrDesc(icon, this.state.type !== "admissionDate", this.state.isAsc)
+				this.handleAscOrDesc(icon, this.state.type !== "admissionDate", this.state.isAsc)
 			} else if (this.state.event.tagName !== 'INPUT') {
 				this.state.event.parentNode.classList.add('is-selected')
-				this.handleIconAscOrDesc(this.state.event, this.state.type !== "admissionDate", this.state.isAsc)
+				this.handleAscOrDesc(this.state.event, this.state.type !== "admissionDate", this.state.isAsc)
 			}
 		}
 	}
-	updateStateAndSetFilter(e, type, applyFilter) {
+	handleUpdateStateAndFilter(e, type, applyFilterContact) {
 		if (this.state.type === "" || this.state.type !== type){
-			this.setState({isAsc: false, type, event: e.target, applyFilter: applyFilter}, () => this.setFilter())
+			this.setState({isAsc: false, type, event: e.target, applyFilterContact: applyFilterContact}, 
+										() => this.setFilterContact())
 		} else {
-			this.setState({isAsc: !this.state.isAsc, type, event: e.target, applyFilter: applyFilter}, () => this.setFilter())
+			this.setState({isAsc: !this.state.isAsc, type, event: e.target, applyFilterContact: applyFilterContact}, 
+										() => this.setFilterContact())
 		}
 	}
-	handleChange = (e) => {
+	handleChangeContact = (e) => {
 		this.setState({searchString: e.target.value})
 	}
 	handleKeyDown = (e) => {
@@ -72,24 +75,34 @@ class Filters extends React.Component {
 			<div className="container" data-testid="filters">
 				<section className="filters">
 					<div className="filters__search">
-						<input type="text" className="filters__search__input" placeholder="Pesquisar" onKeyDown={this.handleKeyDown} onChange={this.handleChange}/>
-						<button className="filters__search__icon" onClick={(e) => this.updateStateAndSetFilter(e, "name_search", filter)}>
+						<input type="text" 
+									className="filters__search__input" 
+									placeholder="Pesquisar" 
+									onKeyDown={this.handleKeyDown} 
+									onChange={this.handleChangeContact}/>
+						<button className="filters__search__icon" 
+										onClick={(e) => this.handleUpdateStateAndFilter(e, "name_search", filter)}>
 							<i className="fa fa-search"/>
 						</button>
 					</div>
-					<button className="filters__item" onClick={(e) => this.updateStateAndSetFilter(e, "name", filter)}>
+					<button className="filters__item" 
+									onClick={(e) => this.handleUpdateStateAndFilter(e, "name", filter)}>
 						Nome <i className="fas fa-sort-alpha-down" />
 					</button>
-					<button className="filters__item" onClick={(e) => this.updateStateAndSetFilter(e, "country", filter)}> 
+					<button className="filters__item" 
+									onClick={(e) => this.handleUpdateStateAndFilter(e, "country", filter)}> 
 						País <i className="fas fa-sort-alpha-down"/>
 					</button>
-					<button className="filters__item" onClick={(e) => this.updateStateAndSetFilter(e, "company", filter)}>
+					<button className="filters__item" 
+									onClick={(e) => this.handleUpdateStateAndFilter(e, "company", filter)}>
 						Empresa <i className="fas fa-sort-alpha-down" />
 					</button>
-					<button className="filters__item"onClick={(e) => this.updateStateAndSetFilter(e, "department", filter)}>
+					<button className="filters__item" 
+									onClick={(e) => this.handleUpdateStateAndFilter(e, "department", filter)}>
 						Departamento <i className="fas fa-sort-alpha-down" />
 					</button>
-					<button className="filters__item" onClick={e => this.updateStateAndSetFilter(e, "admissionDate", filter)}>
+					<button className="filters__item" 
+									onClick={(e) => this.handleUpdateStateAndFilter(e, "admissionDate", filter)}>
 						Data de admissão <i className="fas fa-sort-numeric-down" />
 					</button>
 				</section>
@@ -97,4 +110,3 @@ class Filters extends React.Component {
 	  );
 	}
 }
-export default Filters;

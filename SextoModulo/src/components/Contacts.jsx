@@ -1,9 +1,8 @@
 import React from "react";
 import Contact from "./Contact"
-
-class Contacts extends React.Component {
+export default class Contacts extends React.Component {
 	render() {
-		const contacts = this.props.contacts ? this.props.contacts : [];
+		const contacts = this.props.contacts ? this.props.contacts : []; 
 		return (
 			<div data-testid="contacts" className="container">
 				<section data-testid="contact" className="contacts">
@@ -21,9 +20,4 @@ class Contacts extends React.Component {
 			</div>
 		);
 	}
-
 }
-
-
-export default Contacts;
-

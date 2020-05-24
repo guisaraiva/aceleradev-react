@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReactComponent as LogoSvg } from "../assets/img/logo.svg";
-class Topbar extends React.Component {
+export default class Topbar extends React.Component {
 	render() {
 		return (        
 		<header data-testid="topbar" className="topbar">
@@ -12,4 +12,3 @@ class Topbar extends React.Component {
 	  </header>);
 	}
 }
-export default Topbar;

@@ -4,18 +4,18 @@ import Filters from "./components/Filters"
 import Contacts from "./components/Contacts"
 import './App.scss';
 import { queryAllByAttribute } from '@testing-library/react';
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       contacts: [],
-      allData: []
+      allDataContacts: []
     }
   }
   componentDidMount(){
     fetch("https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts")
       .then(response => response.json())
-      .then(response => this.setState({contacts: response, allData: response}));
+      .then(response => this.setState({contacts: response, allDataContacts: response}));
   }
   applyFilter(type, isAsc){
     this.setState({
@@ -28,9 +28,9 @@ class App extends React.Component {
   }
   performSearch(searchName){
     if (searchName === ""){
-      this.setState({contacts: this.state.allData})
+      this.setState({contacts: this.state.allDataContacts})
     } else {
-      const search = this.state.allData.filter((contact) => contact.name.includes(searchName))
+      const search = this.state.allDataContacts.filter((contact) => contact.name.includes(searchName))
       this.setState({contacts: [...search], changed: true})
     }
   }
@@ -44,4 +44,3 @@ class App extends React.Component {
     )
   }
 } 
-export default App;
