@@ -35,6 +35,6 @@
     ]
   },
   "devDependencies": {
-    "dayjs": "^1.8.23"
+    "dayjs": "^1.8.27"
   }
 }
