@@ -1,20 +1,23 @@
 import React from 'react';
-
-import './Contact.scss';
 class Contact extends React.Component {
+  dateFormatter = date => {
+    const dateParser = new Intl.DateTimeFormat('pt-br');
+    return dateParser.format(new Date(date));
+  }
   render() {
+    const data = this.props.data;
     return (
-      <article className = "contact" data-testid ='contact'>
-        <span className = "contact__avatar"/>
-        <span className = "contact__data">Nome</span>
-        <span className = "contact__data">Telefone</span>
-        <span className = "contact__data">País</span>
-        <span className = "contact__data">Admissão</span>
-        <span className = "contact__data">Empresa</span>
-        <span className = "contact__data">Departamento</span>
+      <article data-testid ="contact" className="contact">
+        <img className="contact__avatar" src={data.avatar} alt={data.name}/>
+        <span className="contact__data" data-testid="contact-name">{data.name}</span>
+        <span className="contact__data" data-testid="contact-phone">{data.phone}</span>
+        <span className="contact__data" data-testid="contact-country">{data.country}</span>
+        <span className="contact__data" data-testid="contact-date">{this.dateFormatter(data.admissionDate)}</span>
+        <span className="contact__data" data-testid="contact-company">{data.company}</span>
+        <span className="contact__data" data-testid="contact-department">{data.department}</span>
       </article>
     );
   }
 }
-
 export default Contact;
+
