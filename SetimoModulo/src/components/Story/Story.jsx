@@ -6,7 +6,7 @@ import './Story.scss';
 
 const Story = ({ story, user, handleClose }) => {
   return (
-    <section className="story">
+    <section className="story" data-testid = "story">
       <div className="container"></div>
     </section>
   );

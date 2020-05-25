@@ -5,7 +5,7 @@ import Post from '../../components/Post';
 import './UserPosts.scss';
 
 const UserPosts = ({ posts }) => (
-  <div className="container">
+  <div className="container" data-testid="user-posts">
   </div>
 );
 

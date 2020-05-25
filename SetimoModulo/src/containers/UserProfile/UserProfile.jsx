@@ -4,7 +4,7 @@ import './UserProfile.scss';
 
 const UserProfile = ({ avatar, name, username }) => {
   return (
-    <section className="profile">
+    <section className="profile" data-testid="user-profile">
     </section>
   )
 };

@@ -6,7 +6,7 @@ import './UserForm.scss';
 
 const UserForm = () => {
   return (
-    <React.Fragment>
+    <React.Fragment data-testid="user-form">
     </React.Fragment>
   );
 };
