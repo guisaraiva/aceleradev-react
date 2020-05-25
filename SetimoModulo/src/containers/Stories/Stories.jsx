@@ -5,6 +5,7 @@ import Story from '../../components/Story';
 import './Stories.scss';
 
 const Stories = ({ stories, getUserHandler }) => {
+  const [showStory] = useState(false);
   return (
     <React.Fragment>
       <section className="stories" data-testid="stories">
