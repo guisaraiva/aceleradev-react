@@ -1,89 +1,62 @@
-import React, { useCallback, useState } from "react";
-
-
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Post.scss';
 
-
-import './Story.scss';
-
-
-const Story = ({ story, user, handleClose }) => {
-
-  const [progress, updateProgress] = useState(0);
-
-
-  const {username, avatar, name} = user;
-
-  const {videoUrl} = story;
-
-
-  const videoProgressCallback = (e) => {
-
-    const {currentTime, duration } = e.currentTarget;
-
-    const progress = (currentTime/duration) * 100;
-
-    updateProgress(progress);
-
-  }
-
-  
-
+const Post = ({ postInfo, userInfo }) => {
+  const [like, setLike] = useState(false);
+  const [follow, setFollow] = useState(false);
   return (
-
-    <section className="story" data-testid="story">
-
-      <div className="container">
-
-        <header className="story__header">
-
-          <div className="user">
-
-            <Link to={`users/${username}`} className="user__thumb">
-
-              <img src={avatar} alt={username} />
-
-            </Link>
-
-            <Link to={`users/${username}`} className="user__name">
-
-              {name}
-
-            </Link>
-
-          </div>
-
-          <button onClick={() => handleClose(false)} className="story__close">
-
-            <span className="fas fa-times" />
-
-          </button>
-
-        </header>
-
-        <div className="story__progress">
-
-          <div className="story__progress__elapsed" style={{width: `${progress}%`}}></div>
-
+    <article className="post" data-testid="post">
+      {
+      userInfo && (
+      <div className="post__header">
+        <div className="user">
+          <Link className="user__thumb" to={`/users/${userInfo.username}`}>
+            <img src={userInfo.avatar} alt="" />
+          </Link>
+          <Link className="user__name" to={`/users/${userInfo.username}`}>
+            {userInfo.name}
+          </Link>
         </div>
-
+        <button type="button" className="post__context">
+          <span className={`follow-btn ${follow && 'is-following'}`} onClick={() => setFollow(!follow)}>
+            {follow ? 'Seguindo' : 'Seguir'}
+          </span>
+        </button>
       </div>
-
-      <div className="container">
-
-        <section className="story__video__wrapper">
-
-          <video autoPlay className="video-player" loop playsInline src={videoUrl} onTimeUpdate={videoProgressCallback}></video>
-
-        </section>
-
-      </div>
-
-    </section>
-
+      )
+    }
+      <figure className="post__figure">
+        <img src={postInfo.imageUrl} alt="" />
+      </figure>
+      {
+      userInfo && postInfo.comments.length > 0 && (
+        <nav className="post__controls">
+          <button type="button" className="post__control" onClick={() => setLike(!like)}>
+            <i className={`${like ? 'fas' : 'far'} fa-heart`} />
+          </button>
+          <div className="post__status">
+            <div className="user">
+              <span>
+                curtido por
+                <Link to="/">
+                  {postInfo.comments[0].name}
+                </Link>
+                e outra
+                {((postInfo.comments.length - 1) + like) > 1 && 's'}
+                <Link to="/">
+                  {like ? postInfo.comments.length : postInfo.comments.length - 1}
+                  pessoa
+                  {((postInfo.comments.length - 1) + like) > 1 && 's'}
+                  .
+                </Link>
+              </span>
+            </div>
+          </div>
+        </nav>
+      )
+    }
+    </article>
   );
-
 };
-
-
-export default Story;
+export default Post;

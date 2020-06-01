@@ -1,38 +1,26 @@
-import React, { useState } from "react";
-import Story from '../../components/Story';
-import './Stories.scss';
+import React from 'react';
+import Post from '../../components/Post';
+import './UserPosts.scss';
 
-
-const Stories = ({ stories, getUserHandler }) => {
-  const [showStory, toggleStory] = useState(false);
-  return (
-    <React.Fragment>
-      <section className="stories" data-testid="stories">
-        <div className="container">
-          {stories.map((story) => {
-            const user = getUserHandler(story.userId);
-            if(!user){
-              return null;
-            }
-            return (
-              <button 
-                onClick={() => toggleStory({user:user, story:story})} 
-                className={"user__thumb user__thumb--hasNew"} 
-                key={story.id}>
-                <div className="user__thumb__wrapper">
-                  <img src={user.avatar} alt={user.name} />
-                </div>
-              </button>
-            );
-          })} 
+const UserPosts = ({ posts }) => (
+  <div className="container" data-testid="user-posts">
+  <section className="user-posts">
+    { posts.length > 0
+      ? posts.map((post) => (
+        <Post
+          postInfo={post}
+          key={post.id}
+        />
+      ))
+      : (
+        <div className="no-posts">
+          <span className="no-posts__content">Não há publicações deste usuário</span>
+          <span className="no-posts__emoji" role="img" aria-label="Emoji Triste">😥</span>
         </div>
-      </section>
+      )
+    }
+  </section>
+</div>
+);
+export default UserPosts;
 
-      {showStory && (
-        <Story handleClose={toggleStory} user={showStory.user} story={showStory.story} />
-        )}
-    </React.Fragment>
-  );
-};
-
-export default Stories;

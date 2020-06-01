@@ -1,65 +1,55 @@
-import React, { useState, useEffect, useCallback} from 'react';
+import React, { useState, useEffect } from 'react';
 import UserProfile from '../../containers/UserProfile';
 import UserPosts from '../../containers/UserPosts';
-import { useParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
 
-const ProfileRoute = () => {
-  const [isLoading, setisLoading] = useState(true);
-  const [posts, setPosts] = useState([]);
-  const [user, setUser] = useState({});
-  const [users, setUsers] = useState([]);  
-  const {username} = useParams()
+const ProfileRouteUsers = () =>{
+  const [userId, setUserId] = useState('');
+  const [userAvatar, setUserAvatar] = useState('');
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [name, setName] = useState('');
+  const [userPosts, setUserPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const findUserByUsername = useCallback(
-    (username) => {
-      const result = users.filter((user) => user.username === username);
-      return result.length > 0 ? result[0] : {
-        id: "", 
-        name: `User not found (username = ${username})`,
-        avatar: "",
-        username: username,
-        email: ""
+  useEffect(()=>{
+    const {pathname} = window.location;
+    const param = pathname.split('/')[2];
+
+    const fetchDataProfile = async () => {
+      const dataProfile = await (await fetch(`https://5e7d0266a917d70016684219.mockapi.io/api/v1/users?search=${param}`)).json();
+      setUserId(dataProfile[0].id);
+      setUserAvatar(dataProfile[0].avatar);
+      setUserName(dataProfile[0].username);
+      setUserEmail(dataProfile[0].email);
+      setName(dataProfile[0].name);
+    };
+    fetchDataProfile();
+  },[])
+
+  useEffect(()=>{
+    if(userId) {
+      const fetchDataProfile = async () =>{
+        const dataProfile = await (await fetch(`https://5e7d0266a917d70016684219.mockapi.io/api/v1/users/${userId}/posts`)).json();
+      setUserPosts(dataProfile);
+      setIsLoading(false);
       };
-    },[users.length])
-
-    useEffect(() => {
-    fetch("https://5e7d0266a917d70016684219.mockapi.io/api/v1/users")
-    .then(res => res.json())
-    .then(response => {
-      setUsers(response);
-      setisLoading(false); 
-    });
-  }, []);
-
-  useEffect(() => {
-    const userFound = findUserByUsername(username);
-    setUser(userFound);    
-  },[users.length])
-
-  useEffect(() => {
-    if(user.id){
-      fetch(`https://5e7d0266a917d70016684219.mockapi.io/api/v1/users/${user.id}/posts`)
-      .then(res => res.json())
-      .then(response => {
-        setPosts(response);
-        setisLoading(false);
-      })
+      fetchDataProfile();
     }
-  }, [user.id]);
+  },[userId]);
 
-  return (
+  return(
     <div data-testid="profile-route">
-      {isLoading && <Loading />}
-      {!isLoading && (
-        <React.Fragment>
-          <UserProfile {...user} />
-          <UserPosts posts={posts} userInfo={user} />
-        </React.Fragment>
-      )}
+      <UserProfile 
+      name={name} 
+      avatar={userAvatar} 
+      username = {userName}
+      email={userEmail} />
+
+      {isLoading ? (<Loading />) : <UserPosts posts={userPosts}/>}
     </div>
-  );
+  )
 };
 
-export default ProfileRoute;
+export default ProfileRouteUsers
 

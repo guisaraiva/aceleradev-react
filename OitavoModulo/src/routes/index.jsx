@@ -7,7 +7,7 @@ import ProfileRoute from './ProfileRoute';
 import NewUserRoute from './NewUserRoute';
 
 const Routes = () => (
-  <Switch>
+  <Switch data-testid = "users-route">
     <Route exact path="/" component={FeedRoute}/>
     <Route exact path="/users" component={UsersRoute}/>
     <Route path="/users/:username" component={ProfileRoute}/>

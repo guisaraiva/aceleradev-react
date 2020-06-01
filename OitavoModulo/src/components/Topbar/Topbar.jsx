@@ -1,60 +1,29 @@
 import React from 'react';
-
-
 import { Link } from 'react-router-dom';
-
-
 import { ReactComponent as LogoSvg } from '../../assets/img/instagram-logo.svg';
-
-
 import './Topbar.scss';
 
-
 const Topbar = () => (
-
   <header className="topbar" data-testid="topbar">
-
     <div className="container">
-
-      <Link to="/" className="topbar__logo">
-
-        <LogoSvg alt="Logo Instagram" />
-
+      <Link to="/">
+        <LogoSvg className="topbar__logo" />
       </Link>
-
       <div className="topbar__group">
-
-        <button className="topbar__icon">
-
+        <button type="button" className="topbar__icon">
           <Link to="/users">
-
-            <span className="fas fa-users"></span>
-
+            <i className="fas fa-users" />
             <span>Usuários</span>
-
           </Link>
-
         </button>
-
-        <button className="topbar__icon">
-
+        <button type="button" className="topbar__icon">
           <Link to="/newuser">
-
-            <span className="fas fa-user-plus"></span>
-
+            <i className="fas fa-user-plus" />
             <span>Nova Conta</span>
-
           </Link>
-
         </button>
-
       </div>
-
     </div>
-
   </header>
-
 );
-
-
 export default Topbar;

@@ -2,8 +2,8 @@ import React from 'react';
 import './Loading.scss';
 
 const Loading = () => (
-  <div className="loading" data-testid = 'loading'>
-    <div className='preloader'>
+  <div className="loading" data-testid="loading">
+    <div className="preloader">
       <span />
       <span />
       <span />
@@ -11,9 +11,7 @@ const Loading = () => (
       <span />
       <span />
     </div>
-
     Carregando
   </div>
 );
-
 export default Loading;
